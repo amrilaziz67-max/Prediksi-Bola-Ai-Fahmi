@@ -1,0 +1,15 @@
+workflows:
+  build_apk:
+    name: Build Prediksi Bola AI APK
+    environment:
+      android: latest
+      java: 17
+    scripts:
+      - name: Prepare
+        script: |
+          chmod +x ./gradlew
+      - name: Build
+        script: |
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
